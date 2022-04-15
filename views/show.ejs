@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+<div class="container">
+    <h1>This is the Show page</h1>
+    <p> <%=campground.name %> </p>
+    <img src="<%= campground.image%>">
+    <p><%= campground.description %></p>
+    <h3>Comments</h3>
+    <%campground.comments.forEach(function(comment){%>
+        <div>
+        <strong><%=comment.author%></strong>
+        => <%=comment.text%>
+        </div>
+    <%})%>
+    <div>
+    <a class="ui inverted green button" href="/campgrounds/<%=campground._id%>/comment/new">Add Comment</a>
+    </div>
+</div>
+<%- include('partials/footer') %>
